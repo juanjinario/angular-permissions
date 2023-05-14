@@ -13,6 +13,7 @@ export class AuthService {
   user = {
     username: 'juanito',
     roles: ['administrator'],
+    permissions: ['fleet.view', 'users.manage'],
   };
 
   constructor(private http: HttpClient) {}
@@ -21,7 +22,7 @@ export class AuthService {
     // posterior a recibir un 200 de backend al hacer el login
     // almaceno el token en local storage y guardo el usuario en una
     // variable local
-    // posterior al login hago una nueva petición y traigo los permisos o información del user
+    // posterior al login hago una nueva petición getPermissions (a veces)
     return this.http.get('pagina login').pipe(
       map((response: LoginResponse) => {
         // localStorageSet save token, save user information
@@ -29,6 +30,10 @@ export class AuthService {
         return this.handlerLoginResponse(response);
       })
     );
+  }
+
+  getUserPermissions() {
+    return this.http.get('/me');
   }
 
   logout() {}
@@ -110,5 +115,10 @@ export class AuthService {
       }
     });
     return haveRole;
+  }
+
+  verifyPermission(permissionValue: PermissionValues): boolean {
+    const { permissions } = this.user;
+    return permissions.some((p) => p == permissionValue);
   }
 }
