@@ -7,23 +7,18 @@ export type PermissionNames =
   | 'View Companies'
   | 'Manage Companies'
   | 'Assign Companies'
-  | 'View Fleet'
-  | 'Manage Fleet'
-  | 'View Devices'
-  | 'Manage Devices'
-  | 'Assign Devices'
-  | 'View Sims'
-  | 'Manage Sims'
-  | 'Assign Sims'
-  | 'View Drivers'
-  | 'Manage Drivers'
-  | 'Assign Drivers'
-  | 'View Assets'
-  | 'Manage Assets'
-  | 'Assign Assets'
-  | 'View TrackingPoints'
-  | 'Manage TrackingPoints'
-  | 'Assign TrackingPoints';
+  | 'Assign Vacation'
+  | 'View Vacation'
+  | 'Manage Vacation'
+  | 'View Clockinout'
+  | 'Request Clockinout'
+  | 'Create Clockinout'
+  | 'Delete Clockinout'
+  | 'View Whoisin'
+  | 'View Shift'
+  | 'Manage Shift'
+  | 'Create Shift'
+  | 'Delete Shift';
 
 export type PermissionValues =
   | 'users.view'
@@ -34,23 +29,18 @@ export type PermissionValues =
   | 'companies.view'
   | 'companies.manage'
   | 'companies.assign'
-  | 'fleet.view'
-  | 'fleet.manage'
-  | 'devices.view'
-  | 'devices.manage'
-  | 'devices.assign'
-  | 'sims.view'
-  | 'sims.manage'
-  | 'sims.assign'
-  | 'drivers.view'
-  | 'drivers.manage'
-  | 'drivers.assign'
-  | 'assets.view'
-  | 'assets.manage'
-  | 'assets.assign'
-  | 'trackingPoints.view'
-  | 'trackingPoints.manage'
-  | 'trackingPoints.assign';
+  | 'vacation.assign'
+  | 'vacation.view'
+  | 'vacation.manage'
+  | 'clockinout.create'
+  | 'clockinout.delete'
+  | 'clockinout.request'
+  | 'clockinout.view'
+  | 'whoisin.view'
+  | 'shift.create'
+  | 'shift.delete'
+  | 'shift.manage'
+  | 'shift.view';
 
 export class Permission {
   public static readonly viewUsersPermission: PermissionValues = 'users.view';
@@ -70,40 +60,30 @@ export class Permission {
   public static readonly assignCompaniesPermission: PermissionValues =
     'companies.assign';
 
-  public static readonly viewFleetPermission: PermissionValues = 'fleet.view';
-  public static readonly manageFleetPermission: PermissionValues =
-    'fleet.manage';
+  public static readonly viewVacationPermission: PermissionValues =
+    'vacation.view';
+  public static readonly manageVacationPermission: PermissionValues =
+    'vacation.manage';
+  public static readonly assignVacationPermission: PermissionValues =
+    'vacation.assign';
 
-  public static readonly viewDevicesPermission: PermissionValues =
-    'devices.view';
-  public static readonly manageDevicesPermission: PermissionValues =
-    'devices.manage';
-  public static readonly assignDevicesPermission: PermissionValues =
-    'devices.assign';
+  public static readonly viewClockinoutPermission: PermissionValues =
+    'clockinout.view';
+  public static readonly deleteClockinoutPermission: PermissionValues =
+    'clockinout.delete';
+  public static readonly requestClockinoutPermission: PermissionValues =
+    'clockinout.request';
 
-  public static readonly viewSimsPermission: PermissionValues = 'sims.view';
-  public static readonly manageSimsPermission: PermissionValues = 'sims.manage';
-  public static readonly assignSimsPermission: PermissionValues = 'sims.assign';
+  public static readonly viewWhoisinPermission: PermissionValues =
+    'whoisin.view';
 
-  public static readonly viewDriversPermission: PermissionValues =
-    'drivers.view';
-  public static readonly manageDriversPermission: PermissionValues =
-    'drivers.manage';
-  public static readonly assignDriversPermission: PermissionValues =
-    'drivers.assign';
-
-  public static readonly viewAssetsPermission: PermissionValues = 'assets.view';
-  public static readonly manageAssetsPermission: PermissionValues =
-    'assets.manage';
-  public static readonly assignAssetsPermission: PermissionValues =
-    'assets.assign';
-
-  public static readonly viewTrackingPointsPermission: PermissionValues =
-    'trackingPoints.view';
-  public static readonly manageTrackingPointsPermission: PermissionValues =
-    'trackingPoints.manage';
-  public static readonly assignTrackingPointsPermission: PermissionValues =
-    'trackingPoints.assign';
+  public static readonly createShiftPermission: PermissionValues =
+    'shift.create';
+  public static readonly deleteShiftPermission: PermissionValues =
+    'shift.delete';
+  public static readonly manageShiftPermission: PermissionValues =
+    'shift.manage';
+  public static readonly viewShiftPermission: PermissionValues = 'shift.view';
 
   constructor(
     name?: PermissionNames,
